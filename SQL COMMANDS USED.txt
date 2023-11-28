@@ -1,0 +1,53 @@
+Sql commands used
+
+show databases;
+
+create database assingment;
+
+use assingment;
+
+show tables;
+
+create table UserPersonal( 
+	UserPersonalId int Primary key auto_increment,
+	UserId int,
+	FirstName varchar(255) not null,
+	MiddleName varchar(255) not null,
+	LastName varchar(255) not null,
+	FullName varchar(255) generated always as (concat(LastName, ', ', FirstName, ', ', MiddleName)),
+	Dob date,
+	Gender char(1),
+	AadharID varbinary(256),
+	CreatedOn datetime,
+	ChangedOn datetime,
+	Foreign key (UserId) references User(UserId),
+	Foreign key (CreatedOn) references User(CreatedOn),
+	Foreign key (ChangedOn) references User(ChangedOn)
+);
+
+CREATE TABLE User (
+    UserID INT PRIMARY KEY AUTO_INCREMENT,
+    UserName VARCHAR(255) NOT NULL,
+    PhoneNumber VARCHAR(15),
+    Email VARCHAR(255) NOT NULL,
+    CreatedOn DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ChangedOn DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_created_on (CreatedOn),
+    INDEX idx_changed_on (ChangedOn)
+);
+
+INSERT INTO User (UserName, PhoneNumber, Email) VALUES
+('user1', '123-456-7890', 'shrey@dani.com'),
+('user2', '987-654-3210', 'ajit@mia.com');
+
+select * from User;
+
+INSERT INTO UserPersonal (UserId, FirstName, MiddleName, LastName, DOB, Gender, AadharID, CreatedOn, ChangedOn) VALUES
+(1, 'Shrey', 'Singh', 'Algo', '2000-09-16', 'M', '12314142141431', '2023-11-28 15:52:52', '2023-11-28 15:52:52'),
+(2, 'Ajit', 'Algo', 'Domain', '1985-05-20', 'F', '12314142141421', '2023-11-28 15:52:52', '2023-11-28 15:52:52');
+
+select * from UserPersonal;
+
+drop table user;
+drop table userpersonal;
+
