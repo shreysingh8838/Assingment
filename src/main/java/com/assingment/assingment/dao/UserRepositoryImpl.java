@@ -15,6 +15,11 @@ public class UserRepositoryImpl implements UserRepository{
     public User findByUserId(Long id){
         String userid = id.toString();
         final String sql = "select * from User where UserId = ?";
-        return this.jdbcTemplate.query(sql.replace("?", userid), new UserRowMapper()).get(0);
+        try{
+            return this.jdbcTemplate.query(sql.replace("?", userid), new UserRowMapper()).get(0);
+        }catch(Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 }

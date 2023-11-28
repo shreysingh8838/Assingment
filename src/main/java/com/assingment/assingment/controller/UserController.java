@@ -20,6 +20,9 @@ public class UserController {
 
     @GetMapping("/{id}")
     public User getUserById(@PathVariable Long id){
-        return userService.getUserById(id);
+        if(userService.getUserById(id) != null){
+            return userService.getUserById(id);
+        }
+        return null;
     }
 }
