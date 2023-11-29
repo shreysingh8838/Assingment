@@ -1,9 +1,7 @@
 package com.assingment.assingment.dao;
-import com.assingment.assingment.entity.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
+import com.assingment.assingment.entity.UserEntity;
 
 
 public interface UserRepository {
-    public User findByUserId(Long id);
+    public UserEntity findByUserId(Long id);
 }

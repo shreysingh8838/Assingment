@@ -48,6 +48,6 @@ INSERT INTO UserPersonal (UserId, FirstName, MiddleName, LastName, DOB, Gender, 
 
 select * from UserPersonal;
 
-drop table user;
+drop table userEntity;
 drop table userpersonal;
 

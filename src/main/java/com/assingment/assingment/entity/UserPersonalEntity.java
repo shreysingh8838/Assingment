@@ -1,7 +1,6 @@
 package com.assingment.assingment.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,12 +11,12 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-public class UserPersonal {
+public class UserPersonalEntity {
 
-    public UserPersonal() {
+    public UserPersonalEntity() {
     }
 
-    public UserPersonal(String firstName, String middleName, String lastName, Date dob, String gender, String aadharNo) {
+    public UserPersonalEntity(String firstName, String middleName, String lastName, Date dob, String gender, String aadharNo) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;

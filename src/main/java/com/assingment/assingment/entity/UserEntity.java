@@ -10,7 +10,7 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -24,5 +24,5 @@ public class User {
     private Date changedOn;
     @OneToOne
     @JoinColumn(name = "user_personal_user_personal_id")
-    private UserPersonal userPersonal;
+    private UserPersonalEntity userPersonalEntity;
 }
