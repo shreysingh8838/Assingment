@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class UserRepositoryImpl implements UserRepository{
 
@@ -21,5 +23,17 @@ public class UserRepositoryImpl implements UserRepository{
             catch (Exception e){
                 return null;
             }
+    }
+
+    @Override
+    public List<UserEntity> findAllUsers(){
+        final String  sql = "Select * from User";
+        try{
+            return jdbcTemplate.query(sql, new UserRowMapper());
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 }

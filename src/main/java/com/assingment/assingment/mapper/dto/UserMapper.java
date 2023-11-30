@@ -4,8 +4,6 @@ import com.assingment.assingment.entity.UserEntity;
 import com.assingment.assingment.entity.UserPersonalEntity;
 import com.assingment.assingment.model.User;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class UserMapper {
 
     public User mapUser(UserEntity userEntity, UserPersonalEntity userPersonalEntity){

@@ -1,11 +1,12 @@
 package com.assingment.assingment.controller;
 
-import com.assingment.assingment.entity.UserEntity;
 import com.assingment.assingment.exception.IdNotExistException;
 import com.assingment.assingment.model.User;
 import com.assingment.assingment.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -24,5 +25,14 @@ public class UserController {
             return ResponseEntity.ok(userService.getUserById(id));
         }
         throw new IdNotExistException("Id " + id + " does not exist in the database");
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<List<User>> getAllUsers(){
+        List<User> allUsers = userService.getAllUsers();
+        if(allUsers != null){
+            return ResponseEntity.ok(allUsers);
+        }
+        return null;
     }
 }

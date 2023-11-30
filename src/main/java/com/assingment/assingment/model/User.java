@@ -1,12 +1,9 @@
 package com.assingment.assingment.model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@Getter
-@Setter
-@ToString
+
+@Data
 public class User {
     private String userName;
     private String phoneNumber;
